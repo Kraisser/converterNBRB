@@ -1,0 +1,62 @@
+.selectWrapper {
+	cursor: pointer;
+	position: absolute;
+	right: 20px;
+	width: 100px;
+}
+.startWrapper {
+	display: flex;
+	width: 100%;
+	min-width: 80px;
+	justify-content: space-between;
+	background-color: #f7f7f7;
+	padding: 5px 7px;
+	border-radius: 2px;
+	.selectLabel {
+		font-weight: 500;
+	}
+	svg {
+		width: 16px;
+		height: 8px;
+		align-self: center;
+	}
+}
+
+.optionsWrapper {
+	position: absolute;
+	top: 96%;
+	height: 300px;
+	width: 100%;
+	opacity: 1;
+	transition: opacity 0.1s ease, height 0.5s ease-in;
+	background-color: #f1f1f1;
+	overflow-y: scroll;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	z-index: 10;
+	box-shadow: 0 1px 3px #808080;
+
+	&.hidden {
+		height: 0;
+		opacity: 0;
+	}
+}
+.customOption {
+	padding: 5px 7px;
+	transition: all 0.3s ease;
+	&:hover {
+		color: #f1f1f1;
+		background-color: #6d7ae0;
+	}
+	&.selected {
+		background-color: #adb2d6;
+	}
+}
+
+.selectIcon {
+	transition: transform 0.35s ease;
+	&.opened {
+		transform: rotateX(180deg);
+	}
+}

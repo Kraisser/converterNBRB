@@ -1,0 +1,60 @@
+@import './variables.scss';
+
+.currencyTable {
+	background-color: $bgc-color;
+	border: none;
+	border-collapse: collapse;
+}
+.headCell {
+	background-color: $label-bgc;
+	color: $label-color;
+	font-size: $label-font-size;
+	padding: 12px 9px;
+	font-weight: 600;
+	&:nth-of-type(n + 3) {
+		text-align: right;
+	}
+}
+.nameColumn {
+	max-width: 180px;
+}
+.currentCourseColumn {
+	max-width: 100px;
+}
+.courseAmountColumn {
+	max-width: 130px;
+}
+.curTableBody {
+	tr.curRow:hover {
+		background-color: $selected-color;
+	}
+	tr.curRow:hover td:hover {
+		transition: font-weight 0.3s ease;
+		font-weight: 600;
+	}
+	tr td {
+		border-right: solid 1px #ececec;
+		&:last-child {
+			border-right: none;
+		}
+	}
+	tr:nth-child(odd) {
+		background-color: #f7f7f7;
+	}
+	tr:nth-child(even) {
+		background-color: #fafafa;
+	}
+}
+.curRow {
+	transition: background-color 0.2s ease;
+
+	.curCell:first-of-type {
+		font-weight: 500;
+	}
+	.curCell:nth-of-type(n + 3) {
+		text-align: right;
+	}
+}
+.curCell {
+	padding: 7px 9px;
+}

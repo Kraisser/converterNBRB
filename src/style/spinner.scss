@@ -1,0 +1,39 @@
+@import './mixins.scss';
+@import './variables.scss';
+
+.tableSkeleton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: $skeleton-default-color;
+	animation: animateSkeleton 2s ease-in infinite;
+	border-radius: 0 0 8px 8px;
+	flex: 1 1 auto;
+}
+
+.spinner {
+	@include size($spinner-size);
+	border-radius: 50%;
+	background: radial-gradient(farthest-side, $spinner-color 94%, #0000) top/9px 9px no-repeat,
+		conic-gradient(#0000 30%, $spinner-color);
+	mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+	-webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+	animation: spinning 1s infinite linear;
+}
+
+@keyframes animateSkeleton {
+	from {
+		background-color: $skeleton-default-color;
+	}
+	50% {
+		background-color: #f1eeee;
+	}
+	to {
+		background-color: $skeleton-default-color;
+	}
+}
+@keyframes spinning {
+	100% {
+		transform: rotate(1turn);
+	}
+}
