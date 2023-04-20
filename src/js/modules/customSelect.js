@@ -82,6 +82,13 @@ function createCustomSelect(wrapper) {
 		toggleSelect();
 	});
 
+	window.addEventListener('click', (e) => {
+		if (!e.composedPath().includes(wrapper)) {
+			optionsList.classList.add('hidden');
+			selectIcon.classList.remove('opened');
+		}
+	});
+
 	return {addOption, wrapper};
 }
 

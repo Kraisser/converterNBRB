@@ -58,3 +58,10 @@
 .curCell {
 	padding: 7px 9px;
 }
+
+@media only all and (max-width: 550px) {
+	.currentCourseColumn,
+	.curRow td:nth-of-type(3) {
+		display: none;
+	}
+}

@@ -76,3 +76,14 @@
 		@include size(32px);
 	}
 }
+
+// Media
+@media only all and (max-width: 950px) {
+	.converter {
+		width: 400px;
+		max-width: none;
+	}
+}
+@media only all and (max-width: 450px) {
+	
+}
