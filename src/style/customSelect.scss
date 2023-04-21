@@ -68,3 +68,10 @@
 		width: 80px;
 	}
 }
+@media only all and (max-width: 550px) {
+	.selectWrapper {
+		right: 10px;
+		width: 80px;
+		top: 10px;
+	}
+}

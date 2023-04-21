@@ -68,3 +68,22 @@ footer {
 		padding: 20px 10px 10px;
 	}
 }
+@media only all and (max-width: 550px) {
+	header {
+		gap: 10px;
+		&.listHeader {
+			flex: 0 1 100px;
+			align-items: end;
+		}
+	}
+}
+@media only all and (max-width: 450px) {
+	main {
+		padding: 10px;
+	}
+}
+@media only all and (max-width: 380px) {
+	.pageLink {
+		padding: 5px 10px;
+	}
+}

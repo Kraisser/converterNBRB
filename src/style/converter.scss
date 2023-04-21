@@ -85,5 +85,12 @@
 	}
 }
 @media only all and (max-width: 450px) {
-	
+	.converter {
+		width: 100%;
+	}
+}
+@media only all and (max-width: 380px) {
+	.converterContent {
+		padding: 15px 10px;
+	}
 }

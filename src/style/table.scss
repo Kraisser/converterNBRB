@@ -65,3 +65,18 @@
 		display: none;
 	}
 }
+@media only all and (max-width: 450px) {
+	.headCell {
+		font-size: 16px;
+		padding: 6px 4px;
+	}
+	.curCell {
+		font-size: 14px;
+		padding: 4px 4px;
+	}
+}
+@media only all and (max-width: 380px) {
+	.headCell {
+		font-size: 14px;
+	}
+}
