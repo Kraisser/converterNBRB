@@ -8,6 +8,8 @@ import {setConverterSelect} from '../js/scripts/setupConverter';
 
 let currencyData = {};
 
+let mainTarget = null;
+
 const converterData = {
 	input1: {value: 0, currency: [1, 'BYN', 1]},
 	input2: {value: 0, currency: [1, 'BYN', 1]},
@@ -60,7 +62,7 @@ function checkConverterInput(e) {
 function changeCurrency(e) {
 	const targetKey = e.currentTarget.dataset.converterTarget;
 	const currency = e.detail.value;
-	const targetInput = document.querySelector(`[data-target-input="${targetKey}"]`);
+	const targetInput = mainTarget || document.querySelector(`[data-target-input="${targetKey}"]`);
 
 	converterData[targetKey].currency = currency;
 
@@ -75,12 +77,12 @@ function countCurrency(target) {
 	const targetKey = target.dataset.targetInput;
 	const targetValue = target.value.replace(/,/gm, '.');
 	const [defScale, , defRate] = converterData[targetKey].currency;
+	mainTarget = target;
 	converterData[targetKey].value = targetValue;
 
 	for (let key in converterData) {
 		if (Object.hasOwnProperty.call(converterData, key) && key !== targetKey) {
 			const resultInput = document.querySelector(`[data-target-input="${key}"]`);
-
 			const item = converterData[key];
 			const [scale, abbr, rate] = item.currency;
 

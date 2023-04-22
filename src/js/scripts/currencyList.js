@@ -2,11 +2,24 @@ async function buildCurrencyTable(currencyData) {
 	if (!currencyData) {
 		throw new Error(`Invalid currency data`);
 	}
+
+	const extendedData = [
+		{
+			Cur_Abbreviation: 'BYN',
+			Cur_ID: 1,
+			Cur_Name: 'Белорусский рубль',
+			Cur_OfficialRate: 1,
+			Cur_Scale: 1,
+			Date: '2023-04-22T00:00:00',
+		},
+		...currencyData,
+	];
+
 	const table = document.querySelector('.currencyTable');
 	const tbody = document.querySelector('#baseСurrency');
 
-	for (let i = 0; i < currencyData.length; i++) {
-		const item = currencyData[i];
+	for (let i = 0; i < extendedData.length; i++) {
+		const item = extendedData[i];
 
 		tbody.insertAdjacentHTML(
 			'beforeend',
@@ -14,7 +27,7 @@ async function buildCurrencyTable(currencyData) {
 						<td class="curCell nameColumn">${item.Cur_Name}</td>
 						<td class="curCell">${item.Cur_Scale} ${item.Cur_Abbreviation}</td>
 						<td class="curCell" data-rate-value="${item.Cur_OfficialRate}">${item.Cur_OfficialRate}</td>
-						<td class="curCell curResult">${item.Cur_OfficialRate}</td>
+						<td class="curCell curResult">${item.Cur_OfficialRate} BYN</td>
 					</tr>`
 		);
 	}
@@ -43,13 +56,13 @@ function countExchange(scale, abbr, rate) {
 		const resWrapper = item.querySelector('.curResult');
 
 		if (itemRateValue == rate && item.dataset.abbr === abbr) {
-			resWrapper.innerHTML = scale;
+			resWrapper.innerHTML = `${scale} ${abbr}`;
 			continue;
 		}
 
-		const countResult = ((itemRateValue / rate) * scale).toFixed(4);
+		const countResult = ((itemRateValue / rate) * scale).toFixed(4).replace(/.[0]$/gm, '');
 
-		resWrapper.innerHTML = countResult.replace(/.[0]$/gm, '');
+		resWrapper.innerHTML = `${countResult} ${abbr}`;
 	}
 }
 

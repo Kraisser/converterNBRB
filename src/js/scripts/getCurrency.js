@@ -21,8 +21,8 @@ async function fetchCurrency() {
 
 		if (request.ok && request.status === 200) {
 			const data = await request.json();
-			localStorage.setItem('currencyData', JSON.stringify(data));
 
+			localStorage.setItem('currencyData', JSON.stringify(data));
 			setExpiredDate(data[0].Date);
 			return data;
 		}
